@@ -49,7 +49,12 @@ router.get("/accueil", async (req, res) => {
 });
 
 router.get("/login", async (req, res) => {
-  await res.render("login", { title, project });
+  try {
+    return res.render("login", { title, project });
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: `Error: ${error}` });
+  }
 });
 
 router.post("/login", async (req, res) => {
@@ -57,8 +62,9 @@ router.post("/login", async (req, res) => {
 });
 
 router.get("/register", async (req, res) => {
-  await res.render("register", { title, project });
+  return res.render("register", { title, project });
 });
+
 router.post("/register", async (req, res) => {
   const {
     name,
@@ -88,6 +94,7 @@ router.post("/register", async (req, res) => {
     await res.send("Pass");
   }
 });
+
 router.get("/personnelle", (req, res) => {
   let SQL = `SELECT * FROM personnelle`;
   db.query(SQL, (err, results) => {

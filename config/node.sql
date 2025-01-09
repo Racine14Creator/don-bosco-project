@@ -158,3 +158,27 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE orphelin(
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100), 
+    `age` INT,
+    `date_of_birth` DATE,
+    `sexe` VARCHAR(50),
+    `provinance`  VARCHAR(100), 
+    `niveau_d_etude` VARCHAR(100), 
+    `nom_du_donnateur` VARCHAR(100), 
+    `parente` VARCHAR(100),
+    `profession` VARCHAR(100),
+    `phone` VARCHAR(255), 
+    `motif` TEXT,
+    `nom_du_pere` VARCHAR(100),
+    `Fage` INT, 
+    `Fphone` VARCHAR(100), 
+    `Fprofession` VARCHAR(100), 
+    `nom_de_la_mere` VARCHAR(100),
+    `Mage` INT, 
+    `Mphone`  VARCHAR(100), 
+    `Mprofession` VARCHAR(100),
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  
+);
