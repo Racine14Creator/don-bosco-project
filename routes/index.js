@@ -96,7 +96,7 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/personnelle", (req, res) => {
-  let SQL = `SELECT * FROM personnelle`;
+  let SQL = `SELECT * FROM personnelle ORDER BY id DESC`;
   db.query(SQL, (err, results) => {
     if (err) error({ message: `Error: ${err}` });
     res.render("personnelle", { title, project, results });
@@ -225,7 +225,7 @@ router.get("/delete/:id", async (req, res) => {
 });
 
 router.get("/security", async (req, res) => {
-  await res.render("security", { title, project });
+  return res.render("security", { title, project });
 });
 
 module.exports = router;

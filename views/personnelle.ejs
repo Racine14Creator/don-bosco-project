@@ -1,22 +1,26 @@
 <%- include('./includes/header') %>
 
-<div class="container-fluid bg-warning">
+<div class="container-fluid">
   <div class="container py-5">
     <a href="/register" class="btn shadow btn-sm btn-danger"
       >Enregistre l'enfant</a
     >
-    <div class="row bg-light my-5 shadow">
-      <div class="col-md-6 p-2">
-        <form action="/search" method="post">
-          <div class="form-inline">
+    <div class="row bg-light my-5 shadow" style="border-radius: 1rem">
+      <div class="col-md-12 p-3">
+        <form method="post">
+          <div
+            class="form-inline"
+            style="float: right; gap: 10px; margin-bottom: 20px"
+          >
             <input
+              readonly
               type="search"
               placeholder="Recherche"
               name="search"
               class="form-control"
             />
-            <button type="submit" class="btn btn-danger">
-              Recherche <i class="fa fa-search"></i>
+            <button disabled type="submit" class="btn btn-danger">
+              <i class="fa fa-search"></i> Recherche
             </button>
           </div>
         </form>
@@ -59,92 +63,8 @@
           </table>
         </div>
       </div>
-      <div class="col-md-6">
-        <%- include('./includes/message') %>
-        <form action="/personnelle" method="post">
-          <div class="form-row">
-            <div class="form-group col-md-6 col-sm-12">
-              <label for="username">Nom d'utilisateur</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Nom d'utilisateur"
-                value="<%= typeof username != 'undefined' ? username: '' %>"
-                class="form-control shadow"
-              />
-            </div>
-            <div class="form-group col-md-6 col-sm-12">
-              <label for="fullname">Nom complet</label>
-              <input
-                type="text"
-                name="fullname"
-                id="fullname"
-                placeholder="Nom complet"
-                value="<%= typeof fullname != 'undefined' ? fullname: '' %>"
-                class="form-control shadow"
-              />
-            </div>
-            <div class="form-group col-md-7 col-sm-12">
-              <label for="fullname">Nom complet</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="example@goma.cd"
-                value="<%= typeof email != 'undefined' ? email: '' %>"
-                class="form-control shadow"
-              />
-            </div>
-            <div class="form-group col-md-5 col-sm-12">
-              <label for="address">Address</label>
-              <input
-                type="text"
-                name="address"
-                id="address"
-                placeholder="Address"
-                value="<%= typeof address != 'undefined' ? address: '' %>"
-                class="form-control shadow"
-              />
-            </div>
-            <div class="form-group col-md-4 col-sm-12">
-              <label for="sexe">Sexe</label>
-              <select name="sexe" id="sexe" class="form-control">
-                <option>--selection--</option>
-                <option value="M">Masculin</option>
-                <option value="F">Feminin</option>
-              </select>
-            </div>
-            <div class="form-group col-md-4 col-sm-12">
-              <label for="status">Status</label>
-              <select name="status" id="status" class="form-control">
-                <option>--selection--</option>
-                <option value="Celibataire">Celibataire</option>
-                <option value="Fiance">Fiance</option>
-                <option value="Mariee">Mariee</option>
-                <option value="Divorce">Divorce</option>
-                <option value="Veuf/veuve">Veuf/veuve</option>
-              </select>
-            </div>
-            <div class="form-group col-md-4 col-sm-12">
-              <label for="post">POST</label>
-              <select name="post" id="post" class="form-control">
-                <option>--selection--</option>
-                <option value="Directeur">Directeur</option>
-                <option value="Comptable">Comptable</option>
-                <option value="Surveillant">Surveillant</option>
-                <option value="Ouvrielle">Ouvrier</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-danger shadow">
-              Enregistre <i class="fa fa-database"></i>
-            </button>
-          </div>
-        </form>
-      </div>
     </div>
   </div>
 </div>
+
 <%- include('./includes/footer') %>
