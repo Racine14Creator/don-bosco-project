@@ -6,60 +6,7 @@
       >Enregistre l'enfant</a
     >
     <div class="row bg-light my-5">
-      <div class="col-md-6 p-2">
-        <form action="/search" method="post">
-          <div class="form-inline">
-            <input
-              type="search"
-              placeholder="Recherche"
-              name="search"
-              class="form-control"
-            />
-            <button type="submit" class="btn btn-danger">
-              Recherche <i class="fa fa-search"></i>
-            </button>
-          </div>
-        </form>
-        <div class="table-resposive my-2">
-          <table class="table table-striped table-hover table-sm">
-            <thead>
-              <tr style="font-size: 14px">
-                <th>nom d'utilisateur</th>
-                <th>nom complet</th>
-                <th>Sexe</th>
-                <!-- <th>Address</th> -->
-                <!-- <th>Status</th> -->
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody style="font-size: 14px">
-              <% results.forEach( (result) => { %>
-              <tr>
-                <td><%= result.username %></td>
-                <td><%= result.fullname %></td>
-                <td><%= result.sexe %></td>
-                <!-- <td> <%= result.address %> </td> -->
-                <td><%= result.status %></td>
-                <td>
-                  <div class="btn-group delete">
-                    <a href="/edit/<%= result.id %>" class="btn btn-sm btn-info"
-                      ><i class="fa fa-edit"></i
-                    ></a>
-                    <a
-                      href="/personnelle/delete/<%= result.id %>"
-                      class="btn btn-sm btn-danger"
-                      ><i class="fa fa-trash"></i
-                    ></a>
-                  </div>
-                </td>
-              </tr>
-              <% }) %>
-            </tbody>
-          </table>
-        </div>
-        <a href="/personnelle" class="btn shadow btn-danger btn-sm">Retour</a>
-      </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <%- include('./includes/message') %> <% result.forEach(function(user) {
         %>
         <h3 class="text-center text-white text-shadow mt-2 bg-danger">

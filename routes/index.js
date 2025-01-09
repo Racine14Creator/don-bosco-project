@@ -104,15 +104,20 @@ router.get("/personnelle", (req, res) => {
 });
 
 router.get("/edit/:id", async (req, res) => {
-  let id = req.params.id;
-  let SQL1 = `SELECT * FROM personnelle`;
-  let SQL = `SELECT * FROM personnelle WHERE id = '${id}'`;
-  await db.query(SQL1, (err, results) => {
+  try {
+    let id = req.params.id;
+
+    let SQL = `SELECT * FROM personnelle WHERE id = '${id}'`;
+
     db.query(SQL, (err, result) => {
       if (err) error({ message: `Error: ${err}` });
-      res.render("edit", { title, project, result, results });
+
+      res.render("edit", { title, project, result });
     });
-  });
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: `Error: ${error}` });
+  }
 });
 
 router.post("/personnelle", async (req, res) => {
