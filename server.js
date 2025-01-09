@@ -3,13 +3,17 @@ const { success, error } = require("consola");
 // const expEjsLayouts = require('express-ejs-layouts')
 const flash = require("connect-flash");
 const session = require("express-session");
+
 const bodyParser = require("body-parser");
 const db = require("./config/");
 
+const PORT = process.env.PORT || 7000;
+
 const app = express();
+
 // Variable globale
-const title = "Solange Pokea";
-const project = "Don Bosco Ngangi";
+const title = "Bisimwa Grace";
+const project = "Racine14 Creator";
 
 // Static files
 app.use(express.static("public"));
@@ -49,8 +53,6 @@ app.use(async (req, res, next) => {
   await res.render("error", { title });
   next();
 });
-
-const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, (err) => {
   if (err) error({ message: `Erreur: ${err}`, badge: true });
